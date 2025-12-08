@@ -1,13 +1,37 @@
-let heading = document.getElementById("myId");
-console.dir(heading);
+let form = document.querySelector("form");
+let pTag= form.querySelector("p");
+pTag.style.color = "green";
+pTag.style.fontSize="20px";
+pTag.style.fontWeight="bold";
+pTag.style.textAlign="center";
+pTag.style.marginTop = "10px";
 
-let headings = document.getElementsByClassName("myClass");
-console.dir(headings);
-console.log(headings);
+// form.style.padding = "20px";
+// form.style.marginTop="10px";
+// form.style.flexDirection = "column";
+// form.style.alignItems = "center";
+// form.style.gap = "10px";
 
-let firstEl = document.querySelector("p");
-console.dir(firstEl);
+// let nextTag = pTag.nextElementSibling;
+// nextTag.style.fontSize="18px";
+// nextTag.style.fontWeight="bold";
 
-let allEl = document.querySelectorAll("p");
-console.dir(allEl);
+let allP=form.querySelectorAll("p");
 
+allP.forEach((p, index) => {
+    if (index === 0) {
+        return;
+    }
+    p.style.color = "darkGreen";
+    p.style.fontSize = "18px";
+    p.style.fontWeight = "bold";
+});
+
+let inputTag = form.querySelectorAll("input");
+
+inputTag.forEach((input, index) => {
+    input.style.padding = "10px";
+    input.style.margin = "5px";
+    input.style.borderRadius = "5px";
+    input.style.border = "1px solid black";
+})
