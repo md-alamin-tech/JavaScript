@@ -5,7 +5,8 @@ function generateIncomplteToDo(taskName) {
   listItem.classList.add("item");
 
   const inputItem = document.createElement("input");
-  inputItem.setAttribute("type", "checkbox");
+    inputItem.setAttribute("type", "checkbox");
+    inputItem.onchange = completeTask;
 
   const label = document.createElement("label");
   label.innerText = taskName;
@@ -22,7 +23,9 @@ function generateComplteToDo(taskName) {
   listItem.classList.add("item");
 
   const button = document.createElement("button");
-  button.classList.add("button");
+    button.classList.add("button");
+    button.innerText = "Delete";
+    button.onclick = deleteTask;
 
   listItem.append(taskName, " ", button);
 
@@ -30,7 +33,6 @@ function generateComplteToDo(taskName) {
 }
 
 const toDoForm = document.querySelector("form");
-
 toDoForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -44,3 +46,28 @@ toDoForm.addEventListener("submit", (e) => {
 
   taskInput.value = "";
 });
+
+
+// Complete task 
+function completeTask(e) {
+    const checkBox = e.target;
+    const taskItem = checkBox.parentNode;
+
+    const label = taskItem.querySelector("label");
+    const taskName = label.textContent;
+
+    const taskToAdd = generateComplteToDo(taskName);
+    document.querySelector(".complete-list ul").appendChild(taskToAdd);
+
+    taskItem.parentNode.removeChild(taskItem);
+
+}
+
+// DeleteTask
+
+function deleteTask(e) {
+    const taskItem = e.target.parentNode;
+    const taskContainer = taskItem.parentNode;
+
+    taskContainer.removeChild(taskItem);
+}
