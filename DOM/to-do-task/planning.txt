@@ -1,0 +1,8 @@
+1.Genarate incomple to-do
+
+<li class = "item" ><input type ="checkNox/><lebel>task name </lebel></li>
+
+
+2. Genarate complte to-do
+
+<li class = "item" > Task name <button class = "delete"> delete </button> </li> 
